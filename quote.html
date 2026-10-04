@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Your quote list | DreamTech Solutions Ltd</title>
+  <meta name="description" content="Review the products you have selected and send one quote request.">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@700;800&family=Hanken+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">
+        <span class="brand-mark"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
+        <span data-site-name>DreamTech Solutions Ltd</span>
+      </a>
+      <button class="menu-toggle" aria-expanded="false" aria-controls="site-nav">Menu</button>
+      <nav class="site-nav" id="site-nav" aria-label="Main">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="products.html">Products</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <section class="page-title">
+      <div class="container">
+        <h1>Your quote list</h1>
+        <p>Add as many products as you like. We price each item, then send the total.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+
+        <div id="quote-empty" class="empty" hidden>
+          <h2>Your list is empty</h2>
+          <p style="margin-inline:auto">Browse the catalogue and select &ldquo;Add to quote&rdquo; on the items you need.</p>
+          <a class="btn" href="products.html">Browse products</a>
+        </div>
+
+        <div id="quote-content" class="quote-layout" hidden>
+          <div>
+            <ul class="quote-list" id="quote-list"></ul>
+            <div class="quote-tools">
+              <a href="products.html">+ Add more products</a>
+              <button type="button" class="text-link danger" id="clear-list">Clear list</button>
+            </div>
+          </div>
+
+          <aside class="contact-card">
+            <h2 style="font-size:1.4rem">Send your list</h2>
+            <p id="quote-summary" class="hint" aria-live="polite"></p>
+            <form id="quote-form">
+              <div class="field">
+                <label for="q-name">Your name</label>
+                <input type="text" id="q-name" name="name" required autocomplete="name">
+              </div>
+              <div class="field">
+                <label for="q-phone">Phone or WhatsApp number</label>
+                <input type="tel" id="q-phone" name="phone" required autocomplete="tel">
+              </div>
+              <div class="field">
+                <label for="q-email">Email (optional)</label>
+                <input type="email" id="q-email" name="email" autocomplete="email">
+              </div>
+              <div class="field">
+                <label for="q-message">Notes (optional)</label>
+                <textarea id="q-message" name="message" style="min-height:5rem"></textarea>
+                <p class="hint">Please do not include medical history or patient details.</p>
+              </div>
+              <div class="quote-actions">
+                <button class="btn" type="submit">Send quote request</button>
+                <button class="btn btn-whatsapp" type="button" id="whatsapp-send">Send on WhatsApp instead</button>
+              </div>
+              <p class="form-status" id="quote-status" role="status" hidden></p>
+            </form>
+          </aside>
+        </div>
+
+        <div id="quote-success" class="success-box" hidden>
+          <h2>Thank you, we have your list</h2>
+          <p>We will price each item and reply with the total, usually the same day.</p>
+          <a class="btn" href="products.html">Back to products</a>
+          <p style="margin-top:1.5rem"><a href="contact.html#rate">Enjoyed using our site? Rate us</a></p>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h3 data-site-name>DreamTech Solutions Ltd</h3>
+          <p>Medical equipment for clinics, hospitals, and homes.</p>
+        </div>
+        <div>
+          <h3>Contact</h3>
+          <ul>
+            <li><a data-phone href="#">Phone</a></li>
+            <li><a data-email href="#">Email</a></li>
+            <li><a data-whatsapp href="#">WhatsApp</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Visit</h3>
+          <p data-address>Your Street, Your Building</p>
+          <p><a data-directions href="#" target="_blank" rel="noopener">Get directions</a></p>
+        </div>
+      </div>
+      <p class="footer-legal">&copy; <span data-year>2026</span> <span data-site-name>DreamTech Solutions Ltd</span>. Registration no. 000000 &middot; Pharmacy and Poisons Board licence no. 000000 (replace with your real details).</p>
+    </div>
+  </footer>
+
+  <a class="whatsapp-float" data-whatsapp href="#">Chat on WhatsApp</a>
+
+  <script src="js/products.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
