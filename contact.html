@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contact | DreamTech Solutions Ltd</title>
+  <meta name="description" content="Request a quote or ask about medical equipment. Phone, WhatsApp, email, and map.">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@700;800&family=Hanken+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">
+        <span class="brand-mark"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
+        <span data-site-name>DreamTech Solutions Ltd</span>
+      </a>
+      <button class="menu-toggle" aria-expanded="false" aria-controls="site-nav">Menu</button>
+      <nav class="site-nav" id="site-nav" aria-label="Main">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="products.html">Products</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html" aria-current="page">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <section class="page-title">
+      <div class="container">
+        <h1>Contact us</h1>
+        <p>Ask a question or request a quote. Want several items quoted together? <a href="products.html">Build a quote list</a>.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container contact-grid">
+        <div>
+          <form data-form data-success="Thank you! We will reply soon.">
+            <input type="hidden" name="_subject" value="New enquiry from the website">
+            <div class="field">
+              <label for="name">Your name</label>
+              <input type="text" id="name" name="name" required autocomplete="name">
+            </div>
+            <div class="field">
+              <label for="phone">Phone or WhatsApp number</label>
+              <input type="tel" id="phone" name="phone" required autocomplete="tel">
+            </div>
+            <div class="field">
+              <label for="email">Email (optional)</label>
+              <input type="email" id="email" name="email" autocomplete="email">
+            </div>
+            <div class="field">
+              <label for="product">Product you are asking about</label>
+              <input type="text" id="product" name="product" placeholder="e.g. Foldable wheelchair, standard">
+            </div>
+            <div class="field">
+              <label for="message">Quantity and other details</label>
+              <textarea id="message" name="message" required></textarea>
+              <p class="hint">Please do not include medical history or patient details.</p>
+            </div>
+            <button class="btn" type="submit">Send request</button>
+            <p class="form-status" role="status" hidden></p>
+          </form>
+        </div>
+
+        <aside class="contact-card">
+          <dl>
+            <dt>WhatsApp</dt>
+            <dd><a data-whatsapp href="#">Start a chat</a></dd>
+            <dt>Phone</dt>
+            <dd><a data-phone href="#">Phone</a></dd>
+            <dt>Email</dt>
+            <dd><a data-email href="#">Email</a></dd>
+            <dt>Address</dt>
+            <dd data-address>Address</dd>
+            <dt>Opening hours</dt>
+            <dd>Monday to Friday, 8:00 to 17:00<br>Saturday, 9:00 to 13:00</dd>
+            <dt>Follow us</dt>
+            <dd><div data-social></div></dd>
+          </dl>
+          <p class="notice">For medical emergencies, contact your nearest hospital. We supply equipment and cannot give medical advice.</p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section section-alt" id="map">
+      <div class="container">
+        <div class="section-head"><h2>Find us</h2></div>
+        <iframe class="map-frame" data-map title="Map showing our location" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+        <p class="map-actions"><a class="btn btn-outline btn-small" data-directions href="#" target="_blank" rel="noopener">Get directions</a></p>
+      </div>
+    </section>
+
+    <section class="section" id="rate">
+      <div class="container rate-grid">
+        <div>
+          <h2>Rate your experience</h2>
+          <p>Your rating comes straight to our team and helps us improve.</p>
+          <a class="btn btn-outline" data-google-review href="#" target="_blank" rel="noopener">Review us on Google</a>
+        </div>
+        <form class="rate-form" data-form data-success="Thank you for rating us!">
+          <input type="hidden" name="_subject" value="New rating from the website">
+          <fieldset>
+            <legend>Your rating</legend>
+            <div class="stars">
+              <input type="radio" id="star5" name="rating" value="5" required><label for="star5" title="5 stars"><span class="sr-only">5 stars</span>&#9733;</label>
+              <input type="radio" id="star4" name="rating" value="4" required><label for="star4" title="4 stars"><span class="sr-only">4 stars</span>&#9733;</label>
+              <input type="radio" id="star3" name="rating" value="3" required><label for="star3" title="3 stars"><span class="sr-only">3 stars</span>&#9733;</label>
+              <input type="radio" id="star2" name="rating" value="2" required><label for="star2" title="2 stars"><span class="sr-only">2 stars</span>&#9733;</label>
+              <input type="radio" id="star1" name="rating" value="1" required><label for="star1" title="1 star"><span class="sr-only">1 star</span>&#9733;</label>
+            </div>
+          </fieldset>
+          <div class="field">
+            <label for="rate-name">Name (optional)</label>
+            <input type="text" id="rate-name" name="name" autocomplete="name">
+          </div>
+          <div class="field">
+            <label for="rate-comment">Comment (optional)</label>
+            <textarea id="rate-comment" name="comment"></textarea>
+          </div>
+          <button class="btn" type="submit">Send rating</button>
+          <p class="form-status" role="status" hidden></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h3 data-site-name>DreamTech Solutions Ltd</h3>
+          <p>Medical equipment for clinics, hospitals, and homes.</p>
+        </div>
+        <div>
+          <h3>Contact</h3>
+          <ul>
+            <li><a data-phone href="#">Phone</a></li>
+            <li><a data-email href="#">Email</a></li>
+            <li><a data-whatsapp href="#">WhatsApp</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Visit</h3>
+          <p data-address>Your Street, Your Building</p>
+          <p><a data-directions href="#" target="_blank" rel="noopener">Get directions</a></p>
+        </div>
+      </div>
+      <p class="footer-legal">&copy; <span data-year>2026</span> <span data-site-name>DreamTech Solutions Ltd</span>. Registration no. 000000 &middot; Pharmacy and Poisons Board licence no. 000000 (replace with your real details).</p>
+    </div>
+  </footer>
+
+  <a class="whatsapp-float" data-whatsapp href="#">Chat on WhatsApp</a>
+
+  <script src="js/products.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
