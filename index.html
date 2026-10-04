@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DreamTech Solutions Ltd | Medical equipment in Nairobi</title>
+  <meta name="description" content="Wheelchairs, diagnostic devices, oxygen equipment, and wound care supplies for clinics, hospitals, and homes.">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@700;800&family=Hanken+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">
+        <span class="brand-mark"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
+        <span data-site-name>DreamTech Solutions Ltd</span>
+      </a>
+      <button class="menu-toggle" aria-expanded="false" aria-controls="site-nav">Menu</button>
+      <nav class="site-nav" id="site-nav" aria-label="Main">
+        <ul>
+          <li><a href="index.html" aria-current="page">Home</a></li>
+          <li><a href="products.html">Products</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <p class="eyebrow">Medical equipment supplier</p>
+          <h1>Equipment you can trust</h1>
+          <p class="lead">For clinics, hospitals, and homes. Build a list and get one clear quote.</p>
+          <form action="products.html" method="get" class="search-row" role="search">
+            <label for="home-search" class="sr-only">Search products</label>
+            <input type="search" id="home-search" name="q" placeholder="Search e.g. wheelchair">
+            <button class="btn" type="submit">Search</button>
+          </form>
+          <div class="hero-actions">
+            <a class="btn btn-outline" href="products.html">Browse all products</a>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <div class="hero-fallback" id="hero-fallback" aria-hidden="true"></div>
+          <img src="images/hero.jpg" alt="Medical equipment supplied by DreamTech Solutions Ltd" onerror="this.remove()">
+          <div class="hero-badge">
+            <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 5-3 8-7 10-4-2-7-5-7-10V6z"/><path d="M9 12l2 2 4-4"/></svg>
+            <div><strong>KRA compliant</strong><span>PIN <span data-kra-pin></span></span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="trust-strip" aria-label="Why choose us">
+      <div class="container">
+        <ul>
+          <li class="trust-item trust-kra">
+            <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 5-3 8-7 10-4-2-7-5-7-10V6z"/><path d="M9 12l2 2 4-4"/></svg>
+            <div><strong>KRA compliant</strong><span data-kra-note>KRA compliant</span></div>
+          </li>
+          <li class="trust-item">
+            <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 8h6M9 12h6M9 16h3"/></svg>
+            <div><strong>Licensed</strong><span>Registered business</span></div>
+          </li>
+          <li class="trust-item">
+            <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-6"/></svg>
+            <div><strong>Genuine products</strong><span>Approved suppliers</span></div>
+          </li>
+          <li class="trust-item">
+            <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7"/><circle cx="7" cy="18" r="1.6"/><circle cx="17" cy="18" r="1.6"/></svg>
+            <div><strong>Fast delivery</strong><span>Nairobi and beyond</span></div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head"><h2>Shop by category</h2></div>
+        <div class="tiles" id="category-tiles"></div>
+      </div>
+    </section>
+
+    <section class="section section-alt">
+      <div class="container">
+        <div class="section-head"><h2>Popular right now</h2></div>
+        <div class="grid" id="featured-grid"></div>
+        <p style="margin-top:1.5rem"><a href="products.html">See all products</a></p>
+      </div>
+    </section>
+
+    <section class="cta-band">
+      <div class="container cta-inner">
+        <div>
+          <h2>Add items. Get one quote.</h2>
+          <p>We price every item, then send the total.</p>
+        </div>
+        <div class="cta-buttons">
+          <a class="btn" href="products.html">Start your list</a>
+          <a class="btn btn-light" data-whatsapp href="#">WhatsApp us</a>
+          <div data-social></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h3 data-site-name>DreamTech Solutions Ltd</h3>
+          <p>Medical equipment for clinics, hospitals, and homes.</p>
+        </div>
+        <div>
+          <h3>Contact</h3>
+          <ul>
+            <li><a data-phone href="#">Phone</a></li>
+            <li><a data-email href="#">Email</a></li>
+            <li><a data-whatsapp href="#">WhatsApp</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Visit</h3>
+          <p data-address>Your Street, Your Building</p>
+          <p><a data-directions href="#" target="_blank" rel="noopener">Get directions</a></p>
+        </div>
+      </div>
+      <p class="footer-legal">&copy; <span data-year>2026</span> <span data-site-name>DreamTech Solutions Ltd</span>. Registration no. 000000 &middot; Pharmacy and Poisons Board licence no. 000000 (replace with your real details).</p>
+    </div>
+  </footer>
+
+  <a class="whatsapp-float" data-whatsapp href="#">Chat on WhatsApp</a>
+
+  <script src="js/products.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
