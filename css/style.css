@@ -27,6 +27,11 @@
 
 html { scroll-behavior: smooth; }
 
+.brand-logo {
+  height: 2.5rem;   /* adjust to taste */
+  width: auto;      /* keeps the proportions */
+}
+
 body {
   margin: 0;
   font-family: var(--font-body);
