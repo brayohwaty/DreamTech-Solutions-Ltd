@@ -4,10 +4,10 @@
   WhatsApp number: country code + number, digits only (no + or spaces).
 */
 const SITE = {
-  name: "CareLine Medical Supplies",
-  whatsapp: "254700000000",
-  phone: "+254 700 000 000",
-  email: "sales@example.com"
+  name: "DreamTech Solutions Ltd",
+  whatsapp: "+254747829346",
+  phone: "+254747829346",
+  email: "dreamtechsolutionske@gmail.com"
 };
 
 /* ---------- Helpers ---------- */
