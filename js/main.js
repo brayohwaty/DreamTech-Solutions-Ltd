@@ -6,12 +6,12 @@ const SITE = {
   name: "DreamTech Solutions Ltd",
 
   // WhatsApp: country code + number, digits only (no + or spaces)
-  whatsapp: "254700000000",
-  phone: "+254 700 000 000",
-  email: "sales@example.com",
+  whatsapp: "+254747829346",
+  phone: "+254 747 829 346",
+  email: "dreamtechsolutionske@gmail.com",
 
   // Shown in the footer and on the contact page. \n starts a new line.
-  address: "Your Street, Your Building\nNairobi, Kenya",
+  address: "DreamTech Solutions Limited\nNairobi, Kenya",
 
   // What Google Maps should search for. Use your business name or full address,
   // exactly as you would type it into Google Maps.
@@ -32,7 +32,7 @@ const SITE = {
   logo: "",
 
   // Your Formspree form address (see README, step 2).
-  formEndpoint: "https://formspree.io/f/YOUR_FORM_ID"
+  formEndpoint: "https://formspree.io/f/xppqanaz"
 };
 
 const BASKET_KEY = "dreamtech_quote_list";
