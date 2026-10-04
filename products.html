@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Products | CareLine Medical Supplies</title>
+  <meta name="description" content="Browse mobility aids, diagnostic devices, respiratory equipment, wound care, and hospital furniture.">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@700;800&family=Hanken+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">
+        <span class="brand-mark"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
+        <span data-site-name>CareLine Medical Supplies</span>
+      </a>
+      <button class="menu-toggle" aria-expanded="false" aria-controls="site-nav">Menu</button>
+      <nav class="site-nav" id="site-nav" aria-label="Main">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="products.html" aria-current="page">Products</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <section class="page-title">
+      <div class="container">
+        <h1>Products</h1>
+        <p>Filter by category or search by name. Select &ldquo;Request a quote&rdquo; on any item.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="toolbar">
+          <div>
+            <label for="search" style="font-weight:700;display:block;margin-bottom:.3rem">Search products</label>
+            <input type="search" id="search" placeholder="e.g. thermometer">
+          </div>
+          <div class="filters" id="filters" role="group" aria-label="Filter by category"></div>
+        </div>
+
+        <p class="result-count" id="result-count" aria-live="polite"></p>
+        <div class="grid" id="product-grid"></div>
+
+        <div class="empty" id="empty-state" hidden>
+          <h2>No products match your search</h2>
+          <p style="margin-inline:auto">Try a shorter word or choose &ldquo;All products&rdquo;. If you cannot find an item, <a href="contact.html">ask us</a>. We can source it.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h3 data-site-name>CareLine Medical Supplies</h3>
+          <p>Quality medical equipment for clinics, hospitals, and homes.</p>
+        </div>
+        <div>
+          <h3>Contact</h3>
+          <ul>
+            <li><a data-phone href="#">Phone</a></li>
+            <li><a data-email href="#">Email</a></li>
+            <li><a data-whatsapp href="#">WhatsApp</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Visit</h3>
+          <p>Your Street, Your Building<br>Nairobi, Kenya</p>
+        </div>
+      </div>
+      <p class="footer-legal">&copy; <span data-year>2026</span> <span data-site-name>CareLine Medical Supplies</span>. Registration no. 000000 &middot; Pharmacy and Poisons Board licence no. 000000 (replace with your real details).</p>
+    </div>
+  </footer>
+
+  <a class="whatsapp-float" data-whatsapp href="#">Chat on WhatsApp</a>
+
+  <script src="js/products.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

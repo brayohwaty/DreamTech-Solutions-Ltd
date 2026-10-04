@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contact | CareLine Medical Supplies</title>
+  <meta name="description" content="Request a quote or ask about medical equipment. Phone, WhatsApp, and email details.">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@700;800&family=Hanken+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">
+        <span class="brand-mark"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
+        <span data-site-name>CareLine Medical Supplies</span>
+      </a>
+      <button class="menu-toggle" aria-expanded="false" aria-controls="site-nav">Menu</button>
+      <nav class="site-nav" id="site-nav" aria-label="Main">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="products.html">Products</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html" aria-current="page">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <section class="page-title">
+      <div class="container">
+        <h1>Request a quote or ask a question</h1>
+        <p>Fill in the form and we will reply with prices and availability.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container contact-grid">
+        <div>
+          <!--
+            This form needs a service to receive the messages.
+            1. Create a free account at https://formspree.io
+            2. Create a form and copy its URL (looks like https://formspree.io/f/abcdwxyz)
+            3. Paste it into the action attribute below.
+          -->
+          <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+            <div class="field">
+              <label for="name">Your name</label>
+              <input type="text" id="name" name="name" required autocomplete="name">
+            </div>
+            <div class="field">
+              <label for="phone">Phone or WhatsApp number</label>
+              <input type="tel" id="phone" name="phone" required autocomplete="tel">
+            </div>
+            <div class="field">
+              <label for="email">Email (optional)</label>
+              <input type="email" id="email" name="email" autocomplete="email">
+            </div>
+            <div class="field">
+              <label for="product">Product you are asking about</label>
+              <input type="text" id="product" name="product" placeholder="e.g. Foldable wheelchair, standard">
+            </div>
+            <div class="field">
+              <label for="message">Quantity and other details</label>
+              <textarea id="message" name="message" required></textarea>
+              <p class="hint">Please do not include medical history or patient details.</p>
+            </div>
+            <button class="btn" type="submit">Send request</button>
+          </form>
+        </div>
+
+        <aside class="contact-card">
+          <dl>
+            <dt>WhatsApp</dt>
+            <dd><a data-whatsapp href="#">Start a chat</a></dd>
+            <dt>Phone</dt>
+            <dd><a data-phone href="#">Phone</a></dd>
+            <dt>Email</dt>
+            <dd><a data-email href="#">Email</a></dd>
+            <dt>Address</dt>
+            <dd>Your Street, Your Building<br>Nairobi, Kenya</dd>
+            <dt>Opening hours</dt>
+            <dd>Monday to Friday, 8:00 to 17:00<br>Saturday, 9:00 to 13:00</dd>
+          </dl>
+          <p class="notice">For medical emergencies, contact your nearest hospital. We supply equipment and cannot give medical advice.</p>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h3 data-site-name>CareLine Medical Supplies</h3>
+          <p>Quality medical equipment for clinics, hospitals, and homes.</p>
+        </div>
+        <div>
+          <h3>Contact</h3>
+          <ul>
+            <li><a data-phone href="#">Phone</a></li>
+            <li><a data-email href="#">Email</a></li>
+            <li><a data-whatsapp href="#">WhatsApp</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Visit</h3>
+          <p>Your Street, Your Building<br>Nairobi, Kenya</p>
+        </div>
+      </div>
+      <p class="footer-legal">&copy; <span data-year>2026</span> <span data-site-name>CareLine Medical Supplies</span>. Registration no. 000000 &middot; Pharmacy and Poisons Board licence no. 000000 (replace with your real details).</p>
+    </div>
+  </footer>
+
+  <a class="whatsapp-float" data-whatsapp href="#">Chat on WhatsApp</a>
+
+  <script src="js/products.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
