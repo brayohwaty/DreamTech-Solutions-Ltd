@@ -29,7 +29,7 @@ const SITE = {
   kraNote: "KRA compliant · eTIMS invoices",
 
   // Logo file, e.g. "images/logo.png". Leave "" to use the plus-sign icon.
-  logo: "",
+  logo: "images/logo.png",
 
   // Your Formspree form address (see README, step 2).
   formEndpoint: "https://formspree.io/f/xppqanaz"
