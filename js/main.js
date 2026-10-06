@@ -3,7 +3,7 @@
    details, social links, map, KRA, logo, and the contact form.
    ============================================================ */
 const SITE = {
-  name: "Quality Care Starts Here",
+  name: "",
 
   // WhatsApp: country code + number, digits only (no + or spaces)
   whatsapp: "+254747829346",
