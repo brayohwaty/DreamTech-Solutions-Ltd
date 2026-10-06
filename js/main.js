@@ -3,7 +3,7 @@
    details, social links, map, KRA, logo, and the contact form.
    ============================================================ */
 const SITE = {
-  name: "DreamTech Solutions Ltd",
+  name: "Quality Care Starts Here",
 
   // WhatsApp: country code + number, digits only (no + or spaces)
   whatsapp: "+254747829346",
