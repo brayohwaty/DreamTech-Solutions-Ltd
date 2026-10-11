@@ -141,6 +141,27 @@ const PRODUCTS = [
     featured: false
   },
   {
+    id: 46,
+    name: "Littmann class II stethoscope",
+    category: "diagnostics",
+    description: "Littmann Classic II stethoscope with a two-sided chestpiece, single-tube design and soft-sealing eartips, for listening to heart, lung and body sounds in adult and pediatric patients.",
+    featured: true
+  },
+   {
+    id: 47,
+    name: "E.N.T diagnostic set",
+    category: "diagnostics",
+    description: "Set with an otoscope, ear specula, a nasal speculum and a tongue depressor, in a carry case, for examining the ears, nose and throat.",
+    featured: true
+  },
+   {
+    id: 48,
+    name: "Patient monitor",
+    category: "diagnostics",
+    description: "Bedside monitor with a colour display for continuous monitoring of vital signs, with audible and visual alarms.",
+    featured: true
+  },
+  {
     id: 7,
     name: "Fingertip pulse oximeter",
     category: "respiratory",
