@@ -57,6 +57,69 @@ const PRODUCTS = [
     featured: false
   },
   {
+    id: 37,
+    name: "Walking frame without castors, pediatric",
+    category: "mobility",
+    description: "Lightweight height-adjustable aluminium walking frame with rubber-tipped legs and padded hand grips, in a child-size design, to support children learning to walk or recovering from injury.",
+    featured: false
+  },
+  {
+    id: 38,
+    name: "Walking stick with seat",
+    category: "mobility",
+    description: "Lightweight foldable walking stick that opens into a seat, with a padded handle and a rubber tip, for resting when out and about.",
+    featured: false
+  },
+  {
+    id: 39,
+    name: "Foldable walking stick",
+    category: "mobility",
+    description: "Lightweight black aluminium walking stick that folds into sections, with a height-adjustable shaft, a curved handle, a wrist strap and a non-slip rubber tip.",
+    featured: false
+  },
+  {
+    id: 40,
+    name: "Foldable Shower chair with commode",
+    category: "mobility",
+    description: "Aluminium wheelchair with a padded commode seat and removable bucket, padded backrest, armrests, swing-away footrests and push handles, for patients who need to use the toilet without leaving the chair.",
+    featured: false
+  },
+  {
+    id: 41,
+    name: "Adjustable commode",
+    category: "mobility",
+    description: "Folding steel commode chair with a lidded seat and removable bucket, padded armrests, a tubular backrest and four castors with brakes, for patients who need a toilet seat at the bedside.",
+    featured: false
+  },
+  {
+    id: 42,
+    name: "Electric wheelchair",
+    category: "mobility",
+    description: "Compact battery-powered wheelchair with a joystick controller, padded seat and backrest, armrests, a footplate and four wheels, for users who can't or don't want to propel a manual chair.",
+    featured: false
+  },
+  {
+    id: 43,
+    name: "Folding electric wheelchair",
+    category: "mobility",
+    description: "Battery-powered folding wheelchair with a joystick controller, orange padded seat and backrest, armrests, a calf strap, swing-away footrests, rear push handles and rear motor wheels.",
+    featured: false
+  },
+  {
+    id: 44,
+    name: "Reclining electric wheelchair",
+    category: "mobility",
+    description: "Battery-powered wheelchair with a reclining backrest and padded headrest, a joystick controller, a black padded seat, footrests and rear motor wheels, on a red and black frame.",
+    featured: false
+  },
+  {
+    id: 45,
+    name: "Four-wheel rollator with seat",
+    category: "mobility",
+    description: "Lightweight folding rollator with four wheels, a padded seat and backrest strap, hand brakes, a storage basket and height-adjustable handles, for walking support and resting.",
+    featured: false
+  },
+  {
     id: 4,
     name: "Digital infrared thermometer",
     category: "diagnostics",
