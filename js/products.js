@@ -118,5 +118,166 @@ const PRODUCTS = [
     category: "furniture",
     description: "Height and backrest adjustment, with side rails and lockable castors.",
     featured: true
+  },
+  {
+    id: 13,
+    name: "Manual hospital bed, 3-crank",
+    category: "furniture",
+    description: "Height, backrest and knee-rest adjustment, with side rails and lockable castors.",
+    featured: true
+  },
+  {
+    id: 14,
+    name: "Electric hospital bed, 3-crank",
+    category: "furniture",
+    description: "Height, backrest and knee-rest adjustment, with side rails and lockable castors.",
+    featured: true
+  },
+  {
+    id: 15,
+    name: "Dressing Trolley, Two shelf",
+    category: "furniture",
+    description: "Stainless steel trolley with two shelves and lockable castors, for carrying dressings and instruments.",
+    featured: true
+  },
+  {
+    id: 16,
+    name: "Emergency trolley (crash cart)",
+    category: "furniture",
+    description: "Multi-drawer trolley with lockable castors, for storing and moving emergency drugs and resuscitation equipment.",
+    featured: true
+  },
+  {
+    id: 17,
+    name: "Bedside locker",
+    category: "furniture",
+    description: "Compact locker with a cupboard and drawer for patient belongings, with lockable castors.",
+    featured: true
+  },
+  {
+    id: 18,
+    name: "Examination couch",
+    category: "furniture",
+    description: "Padded couch with adjustable backrest for patient examination, with a washable vinyl surface.",
+    featured: true
+  },
+  {
+    id: 19,
+    name: "Double stepper stool",
+    category: "furniture",
+    description: "Two-step stool with non-slip rubber treads, for patients to step up onto beds and examination couches.",
+    featured: true
+  },
+  {
+    id: 20,
+    name: "Shower stool",
+    category: "furniture",
+    description: "Lightweight stool with a non-slip seat and rubber feet, for sitting safely while showering.",
+    featured: true
+  },
+  {
+    id: 21,
+    name: "Ward screen, 3-fold",
+    category: "furniture",
+    description: "Three-panel folding screen on a steel frame, for giving patients privacy in wards and examination rooms.",
+    featured: true
+  },
+  {
+    id: 22,
+    name: "Linen trolley",
+    category: "furniture",
+    description: "Trolley with a removable canvas bag on a steel frame and castors, for collecting and moving soiled or clean linen.",
+    featured: true
+  },
+  {
+    id: 23,
+    name: "Tripod Stand",
+    category: "furniture",
+    description: "Height-adjustable stainless steel stand on a three-legged base, with hooks for hanging IV fluid bags.",
+    featured: true
+  },
+  {
+    id: 24,
+    name: "Emergency stretcher, ABS",
+    category: "furniture",
+    description: "Wheeled emergency stretcher with a washable ABS plastic top, adjustable backrest and side rails, for moving patients quickly.",
+    featured: true
+  },
+  {
+    id: 25,
+    name: "Electric delivery bed",
+    category: "furniture",
+    description: "Motorised obstetric bed with a hand-held remote for height, backrest and leg-section adjustment, side rails and lockable castors.",
+    featured: true
+  },
+  {
+    id: 26,
+    name: "Doctor's stool with back rest",
+    category: "furniture",
+    description: "Height-adjustable swivel stool with a padded, washable vinyl seat, curved backrest and gas-lift lever, on a five-star base with castors.",
+    featured: true
+  },
+  {
+    id: 27,
+    name: "Hospital segmented mattress with mackintosh",
+    category: "furniture",
+    description: "Foam mattress made in separate sections to fit adjustable hospital beds, with a waterproof, wipe-clean mackintosh cover.",
+    featured: true
+  },
+  {
+    id: 28,
+    name: "Tube ripple mattress",
+    category: "furniture",
+    description: "Alternating pressure mattress with inflatable air tubes and an electric pump, to help prevent and treat pressure sores in bedridden patients.",
+    featured: true
+  },
+  {
+    id: 29,
+    name: "Instruments tray",
+    category: "furniture",
+    description: "Stainless steel tray with raised edges, for holding surgical and dental instruments during procedures.",
+    featured: true
+  },
+  {
+    id: 30,
+    name: "Electric massage bed",
+    category: "furniture",
+    description: "Padded treatment bed with electric height adjustment and a hand-held controller, with a washable cover, for massage and physiotherapy.",
+    featured: true
+  },
+  {
+    id: 31,
+    name: "Hydraulic delivery bed",
+    category: "furniture",
+    description: "Padded delivery bed with stainless steel base, adjustable sections, leg supports with stirrups and a hand-wheel for height adjustment.",
+    featured: true
+  },
+  {
+    id: 32,
+    name: "Waiting bench, 3-seater, padded",
+    category: "furniture",
+    description: "Three-seat linked waiting bench with padded seats and backrests, on a sturdy steel frame, for hospital and clinic waiting areas.",
+    featured: true
+  },
+  {
+    id: 33,
+    name: "Operating table",
+    category: "furniture",
+    description: "Multi-section operating table with black padded top, stainless steel column base, adjustable head, back and leg sections, and side rails with accessory fittings.",
+    featured: true
+  },
+  {
+    id: 34,
+    name: "Electric Hospital bed, 5-function",
+    category: "furniture",
+    description: "Motorised bed with hand-held remote for backrest, knee-rest, height, and forward and backward tilt adjustment, ABS head and foot boards, four-piece ABS side rails, a blue padded mattress and lockable castors.",
+    featured: true
+  },
+  {
+    id: 35,
+    name: "Electric hospital bed, 3-function",
+    category: "furniture",
+    description: "Motorised bed with hand-held remote for height, backrest and knee-rest adjustment, ABS head and foot boards, four-piece ABS side rails, a blue padded mattress and lockable castors.",
+    featured: true
   }
 ];
