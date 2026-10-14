@@ -62,7 +62,7 @@
 
   function makeLine(name, qty) {
     const p = findProduct(name);
-    const line = { pid: p ? p.id : null, name: p ? p.name : name.trim(), qty: qty || 1, price: "" };
+    const line = { pid: p ? p.id : null, name: p ? p.name : name.trim(), qty: qty || 1, price: "", vat: Number($("q-vat").value) || 0 };
     const saved = prices[priceKey(line)];
     line.price = saved !== undefined ? saved : p && p.price ? p.price : "";
     return line;
@@ -79,11 +79,22 @@
   }
 
   /* ---------- totals ---------- */
+  // Each item has its own VAT rate. Older drafts without one use the default.
+  const lineRate = (l) => (l.vat === undefined || l.vat === "" ? Number($("q-vat").value) || 0 : Number(l.vat) || 0);
+  const rateName = (r) => (r ? "VAT " + r + "%" : "VAT Exempt");
+
   function totals() {
-    const subtotal = lines.reduce((s, l) => s + (Number(l.qty) || 0) * (Number(l.price) || 0), 0);
-    const rate = Number($("q-vat").value) || 0;
-    const vat = (subtotal * rate) / 100;
-    return { subtotal, rate, vat, total: subtotal + vat };
+    let subtotal = 0;
+    const byRate = {}; // rate -> VAT amount for items at that rate
+    lines.forEach((l) => {
+      const amount = (Number(l.qty) || 0) * (Number(l.price) || 0);
+      const r = lineRate(l);
+      subtotal += amount;
+      byRate[r] = (byRate[r] || 0) + (amount * r) / 100;
+    });
+    Object.keys(byRate).forEach((r) => (byRate[r] = Math.round(byRate[r] * 100) / 100));
+    const vat = Object.values(byRate).reduce((a, b) => a + b, 0);
+    return { subtotal, byRate, vat, total: subtotal + vat };
   }
 
   function expiryISO() {
@@ -99,6 +110,10 @@
         <td><input type="text" data-i="${i}" data-f="name" value="${esc(l.name)}" aria-label="Description"></td>
         <td><input type="number" min="1" step="1" data-i="${i}" data-f="qty" value="${l.qty}" aria-label="Quantity"></td>
         <td><input type="number" min="0" step="0.01" data-i="${i}" data-f="price" value="${l.price}" aria-label="Unit price"></td>
+        <td><select data-i="${i}" data-f="vat" aria-label="VAT">
+          <option value="0"${lineRate(l) === 0 ? " selected" : ""}>Exempt</option>
+          <option value="16"${lineRate(l) === 16 ? " selected" : ""}>16%</option>
+        </select></td>
         <td class="qt-amt" data-amt="${i}">${money(l.qty * l.price)}</td>
         <td><button type="button" class="qt-rm" data-rm="${i}" aria-label="Remove item">&times;</button></td>
       </tr>`
@@ -121,7 +136,10 @@
   /* ---------- document ---------- */
   function renderPaper() {
     const t = totals();
-    const taxName = t.rate ? "VAT " + t.rate + "%" : "VAT Exempt";
+    const rates = Object.keys(t.byRate).map(Number).filter((r) => r > 0).sort((a, b) => a - b);
+    const vatRows = rates.length
+      ? rates.map((r) => `<tr><td>${rateName(r)}</td><td>${money(t.byRate[r])} ${esc(Q.currency)}</td></tr>`).join("")
+      : `<tr><td>VAT Exempt</td><td>${money(0)} ${esc(Q.currency)}</td></tr>`;
     const cur = Q.currency;
 
     const addressLines = (SITE.address || "").split("\n").filter(Boolean);
@@ -137,7 +155,7 @@
               <td>${esc(l.name)}</td>
               <td class="r">${qty} ${qty === 1 ? "Unit" : "Units"}</td>
               <td class="r">${money(l.price)}</td>
-              <td class="r">Sales ${taxName}</td>
+              <td class="r">Sales ${rateName(lineRate(l))}</td>
               <td class="r amt">${money(qty * (Number(l.price) || 0))} ${esc(cur)}</td>
             </tr>`;
           })
@@ -177,7 +195,7 @@
       </table>
       <table class="qd-totals">
         <tr><td>Untaxed Amount</td><td>${money(t.subtotal)} ${esc(cur)}</td></tr>
-        <tr><td>${taxName}</td><td>${money(t.vat)} ${esc(cur)}</td></tr>
+        ${vatRows}
         <tr class="grand"><td>Total</td><td>${money(t.total)} ${esc(cur)}</td></tr>
       </table>
 
@@ -461,6 +479,7 @@
       const field = el.dataset.f;
       if (field === "name") line.name = el.value;
       if (field === "qty") line.qty = Number(el.value) || 0;
+      if (field === "vat") line.vat = Number(el.value) || 0;
       if (field === "price") {
         line.price = el.value === "" ? "" : Number(el.value);
         if (line.price !== "") {
