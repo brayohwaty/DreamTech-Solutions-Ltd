@@ -64,11 +64,11 @@ const BACKEND = (function () {
     const { method = "GET", body, prefer, anon } = opts || {};
     const t = anon ? null : await token();
     if (!anon && !t) throw new Error("Please sign in first.");
-    const headers = { apikey: cfg.anonKey, "Content-Type": "application/json" };
-    // Staff requests carry their login token. Visitors send only the key; the older
-    // "anon" JWT key also goes in Authorization, the newer "sb_publishable_" key must not.
-    if (t) headers.Authorization = "Bearer " + t;
-    else if (cfg.anonKey.startsWith("eyJ")) headers.Authorization = "Bearer " + cfg.anonKey;
+    const headers = {
+      apikey: cfg.anonKey,
+      Authorization: "Bearer " + (t || cfg.anonKey),
+      "Content-Type": "application/json"
+    };
     if (prefer) headers.Prefer = prefer;
     const res = await fetch(cfg.url + "/rest/v1/" + path, {
       method,
