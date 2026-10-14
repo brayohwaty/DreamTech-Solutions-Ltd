@@ -70,7 +70,7 @@
               <div class="field"><label for="q-number">Quotation no.</label><input type="text" id="q-number"></div>
               <div class="field"><label for="q-date">Date</label><input type="date" id="q-date"></div>
               <div class="field"><label for="q-valid">Valid for (days)</label><input type="number" id="q-valid" min="1" step="1"></div>
-              <div class="field"><label for="q-vat">VAT</label>
+              <div class="field"><label for="q-vat">Default VAT for new items</label>
                 <select id="q-vat"><option value="0">VAT exempt (0%)</option><option value="16">VAT 16%</option></select>
               </div>
             </div>
@@ -99,11 +99,12 @@
 
             <div class="qt-scroll">
               <table class="qt-lines">
-                <thead><tr><th>Description</th><th>Qty</th><th>Unit price</th><th>Amount</th><th><span class="sr-only">Remove</span></th></tr></thead>
+                <thead><tr><th>Description</th><th>Qty</th><th>Unit price</th><th>VAT</th><th>Amount</th><th><span class="sr-only">Remove</span></th></tr></thead>
                 <tbody id="q-rows"></tbody>
               </table>
             </div>
             <p class="hint" id="q-empty-hint">No items yet.</p>
+            <p class="hint">Set VAT for each item in the table. Items without VAT stay exempt, and VAT is added only to the items marked 16%.</p>
 
             <div class="qt-import">
               <button type="button" class="text-link" id="q-load-basket">Load this browser's quote list</button>
