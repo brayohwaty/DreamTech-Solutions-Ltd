@@ -95,3 +95,8 @@
 .qt-list { list-style: none; margin: 0.4rem 0 0; padding: 0; display: grid; gap: 0.4rem; font-size: 0.92rem; }
 .qt-list li { display: flex; justify-content: space-between; gap: 0.6rem; align-items: center; background: var(--white); border-radius: 8px; padding: 0.4rem 0.6rem; }
 @media print { .qt-account { display: none !important; } }
+
+/* Signed out: only the sign-in box is visible */
+.qt-layout.qt-locked { grid-template-columns: minmax(0, 28rem); }
+.qt-layout.qt-locked .qt-editor > :not(.qt-account),
+.qt-layout.qt-locked .qt-preview { display: none; }
