@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Create quotation | DreamTech Solutions Ltd</title>
+
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@700;800&family=Hanken+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/quotation.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">
+        <span class="brand-mark"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
+        <span data-site-name>DreamTech Solutions Ltd</span>
+      </a>
+      <button class="menu-toggle" aria-expanded="false" aria-controls="site-nav">Menu</button>
+      <nav class="site-nav" id="site-nav" aria-label="Main">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="products.html">Products</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="page-title">
+      <div class="container">
+        <h1>Create a quotation</h1>
+        <p>Staff tool. Fill in the details on the left, check the preview, then print or save as PDF.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container qt-layout">
+
+        <!-- ============ EDITOR (screen only) ============ -->
+        <div class="qt-editor">
+          <section class="qt-account" id="qt-account" hidden>
+            <form id="qt-login" class="qt-login">
+              <p><strong>Staff sign-in</strong></p>
+              <div class="field"><label for="qt-email">Email</label><input type="email" id="qt-email" autocomplete="username" required></div>
+              <div class="field"><label for="qt-pass">Password</label><input type="password" id="qt-pass" autocomplete="current-password" required></div>
+              <button class="btn btn-small" type="submit">Sign in</button>
+            </form>
+            <div id="qt-signed" hidden>
+              <p>Signed in as <strong id="qt-user"></strong> &middot; <button type="button" class="text-link" id="qt-logout">Sign out</button></p>
+              <details id="qt-requests" open><summary>Customer requests</summary><ul id="qt-req-list" class="qt-list"></ul></details>
+              <details id="qt-saved"><summary>Saved quotations</summary><ul id="qt-saved-list" class="qt-list"></ul></details>
+            </div>
+            <p class="hint" id="qt-status" role="status" hidden></p>
+          </section>
+          <p class="qt-warn" id="qt-warn" hidden></p>
+
+          <fieldset>
+            <legend>Quotation</legend>
+            <div class="qt-two">
+              <div class="field"><label for="q-number">Quotation no.</label><input type="text" id="q-number"></div>
+              <div class="field"><label for="q-date">Date</label><input type="date" id="q-date"></div>
+              <div class="field"><label for="q-valid">Valid for (days)</label><input type="number" id="q-valid" min="1" step="1"></div>
+              <div class="field"><label for="q-vat">VAT</label>
+                <select id="q-vat"><option value="0">VAT exempt (0%)</option><option value="16">VAT 16%</option></select>
+              </div>
+            </div>
+            <div class="field"><label for="q-sales">Salesperson</label><input type="text" id="q-sales"></div>
+          </fieldset>
+
+          <fieldset>
+            <legend>Customer</legend>
+            <div class="field"><label for="q-cname">Name</label><input type="text" id="q-cname"></div>
+            <div class="field"><label for="q-cco">Company or facility (optional)</label><input type="text" id="q-cco"></div>
+            <div class="qt-two">
+              <div class="field"><label for="q-cphone">Phone</label><input type="tel" id="q-cphone"></div>
+              <div class="field"><label for="q-cemail">Email</label><input type="email" id="q-cemail"></div>
+            </div>
+            <div class="field"><label for="q-caddr">Address (optional)</label><textarea id="q-caddr" style="min-height:3.5rem"></textarea></div>
+          </fieldset>
+
+          <fieldset>
+            <legend>Items</legend>
+            <div class="qt-add">
+              <label for="q-add" class="sr-only">Add an item</label>
+              <input type="text" id="q-add" list="q-products" placeholder="Pick a product, or type any item" autocomplete="off">
+              <datalist id="q-products"></datalist>
+              <button type="button" class="btn btn-small" id="q-add-btn">Add</button>
+            </div>
+
+            <div class="qt-scroll">
+              <table class="qt-lines">
+                <thead><tr><th>Description</th><th>Qty</th><th>Unit price</th><th>Amount</th><th><span class="sr-only">Remove</span></th></tr></thead>
+                <tbody id="q-rows"></tbody>
+              </table>
+            </div>
+            <p class="hint" id="q-empty-hint">No items yet.</p>
+
+            <div class="qt-import">
+              <button type="button" class="text-link" id="q-load-basket">Load this browser's quote list</button>
+              <details>
+                <summary class="text-link">Paste a customer's request</summary>
+                <textarea id="q-paste" placeholder="1. Foldable wheelchair, standard - Qty: 2&#10;2. Patient monitor - Qty: 1"></textarea>
+                <button type="button" class="btn btn-outline btn-small" id="q-paste-btn">Add pasted items</button>
+              </details>
+            </div>
+            <p class="hint">Prices you type are remembered on this device and filled in next time.</p>
+          </fieldset>
+
+          <fieldset>
+            <legend>Notes and terms</legend>
+            <div class="field"><textarea id="q-notes"></textarea></div>
+          </fieldset>
+
+          <div class="qt-actions">
+            <button type="button" class="btn" id="q-print">Print / Save as PDF</button>
+            <button type="button" class="btn btn-outline" id="q-save">Save</button>
+            <button type="button" class="btn btn-outline" id="q-new">New quotation</button>
+          </div>
+          <p class="hint">In the print window choose &ldquo;Save as PDF&rdquo; as the destination.</p>
+        </div>
+
+        <!-- ============ PREVIEW / DOCUMENT ============ -->
+        <div class="qt-preview">
+          <article class="qt-paper" id="q-paper" aria-label="Quotation preview"></article>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h3 data-site-name>DreamTech Solutions Ltd</h3>
+          <p>Medical equipment for clinics, hospitals, and homes.</p>
+        </div>
+        <div>
+          <h3>Contact</h3>
+          <ul>
+            <li><a data-phone href="#">Phone</a></li>
+            <li><a data-email href="#">Email</a></li>
+            <li><a data-whatsapp href="#">WhatsApp</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Visit</h3>
+          <p data-address>Your Street, Your Building</p>
+          <p><a data-directions href="#" target="_blank" rel="noopener">Get directions</a></p>
+        </div>
+      </div>
+      <p class="footer-legal">&copy; <span data-year>2026</span> <span data-site-name>DreamTech Solutions Ltd</span>.</p>
+    </div>
+  </footer>
+
+  <script src="js/products.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/backend.js"></script>
+  <script src="js/quotation.js"></script>
+</body>
+</html>
