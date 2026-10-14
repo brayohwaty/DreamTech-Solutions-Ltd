@@ -378,6 +378,8 @@
   function showAccount() {
     if (!BACKEND.enabled) return;
     const signedIn = BACKEND.signedIn();
+    // Signed out: show only the sign-in box, hide the form and the preview
+    document.querySelector(".qt-layout").classList.toggle("qt-locked", !signedIn);
     $("qt-account").hidden = false;
     $("qt-login").hidden = signedIn;
     $("qt-signed").hidden = !signedIn;
@@ -411,6 +413,10 @@
     });
     $("qt-logout").addEventListener("click", () => {
       BACKEND.signOut();
+      // Clear the on-screen draft and the copy kept in this browser (shared computers)
+      setDefaults();
+      renderRows();
+      refresh();
       status("");
       showAccount();
     });
