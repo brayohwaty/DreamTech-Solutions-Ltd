@@ -25,7 +25,7 @@ const SITE = {
   googleReview: "",
 
   // KRA. Only show what is true and up to date for your business.
-  kraPin: "",
+  kraPin: "A000000001X",
   kraNote: "KRA compliant · eTIMS invoices",
 
   // Logo file, e.g. "images/logo.png". Leave "" to use the plus-sign icon.
@@ -37,8 +37,8 @@ const SITE = {
   // Backend (Supabase). Leave both as "" to run without a backend.
   // See backend/SETUP steps: Project URL and "anon public" key from Supabase > Settings > API.
   backend: {
-    url: "",      // e.g. "https://abcdxyz.supabase.co"
-    anonKey: ""   // the long "anon public" key (safe to publish; the database rules protect your data)
+    url: "https://wdgqjdbnulabthbirvfo.supabase.co/rest/v1/",      // e.g. "https://abcdxyz.supabase.c"
+    anonKey: "sb_publishable_ebQwb1fU-772WF51hMIdYw_3lkHQEtX"   // the long "anon public" key (safe to publish; the database rules protect your data)
   },
 
   // System-generated quotations (staff page: quotation.html)
@@ -52,7 +52,7 @@ const SITE = {
 
     // Payment details printed at the bottom. One line per entry. Leave [] to hide.
     // Example: ["Bank: Your Bank, Branch name", "Account name: DreamTech Solutions Ltd", "Account no.: 0000000000", "M-Pesa Till no.: 000000"]
-    payment: ["DreamTech Solutions Ltd", "EQUITY BANK", "THIKA BRANCH","Account no.: 0000000000" ],
+    payment: ["Bank: Your Bank, Branch name"],
 
     terms: "Prices are in Kenya Shillings. This quotation is valid until the expiration date. Availability and delivery time will be confirmed when you place your order."
   }
