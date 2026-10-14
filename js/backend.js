@@ -5,7 +5,10 @@
    works exactly as before.
    ============================================================ */
 const BACKEND = (function () {
-  const cfg = SITE.backend || {};
+  const cfg = Object.assign({}, SITE.backend);
+  // Tidy the address: remove spaces, trailing slashes and any /rest/v1 or /auth/v1 ending
+  cfg.url = (cfg.url || "").trim().replace(/\/+$/, "").replace(/\/(rest|auth)\/v1$/, "");
+  cfg.anonKey = (cfg.anonKey || "").trim();
   const enabled = !!(cfg.url && cfg.anonKey);
   const SESSION_KEY = "dreamtech_staff_session";
 
@@ -31,9 +34,14 @@ const BACKEND = (function () {
       method: "POST",
       headers: { apikey: cfg.anonKey, "Content-Type": "application/json" },
       body: JSON.stringify(body)
+    }).catch(() => {
+      throw new Error("Cannot reach Supabase. Check the url in main.js and your internet connection.");
     });
     const data = await res.json().catch(() => ({}));
-    if (!res.ok) throw new Error(data.error_description || data.msg || "Sign-in failed");
+    if (!res.ok) {
+      const why = data.error_description || data.msg || data.message || data.error || "";
+      throw new Error(why ? "Sign-in failed: " + why : "Sign-in failed (error " + res.status + ")");
+    }
     return data;
   }
 
@@ -64,11 +72,11 @@ const BACKEND = (function () {
     const { method = "GET", body, prefer, anon } = opts || {};
     const t = anon ? null : await token();
     if (!anon && !t) throw new Error("Please sign in first.");
-    const headers = {
-      apikey: cfg.anonKey,
-      Authorization: "Bearer " + (t || cfg.anonKey),
-      "Content-Type": "application/json"
-    };
+    const headers = { apikey: cfg.anonKey, "Content-Type": "application/json" };
+    // Staff requests carry their login token. Visitors send only the key; the older
+    // "anon" JWT key also goes in Authorization, the newer "sb_publishable_" key must not.
+    if (t) headers.Authorization = "Bearer " + t;
+    else if (cfg.anonKey.startsWith("eyJ")) headers.Authorization = "Bearer " + cfg.anonKey;
     if (prefer) headers.Prefer = prefer;
     const res = await fetch(cfg.url + "/rest/v1/" + path, {
       method,
