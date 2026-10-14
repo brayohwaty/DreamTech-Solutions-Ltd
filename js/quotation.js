@@ -411,6 +411,96 @@
     }
   }
 
+  // Sign out and clear the on-screen draft and the copy kept in this browser (shared computers)
+  function signOut(message) {
+    BACKEND.signOut();
+    setDefaults();
+    renderRows();
+    refresh();
+    status(message || "");
+    showAccount();
+  }
+
+  /* ---------- automatic sign-out after inactivity ---------- */
+  const ACTIVE_KEY = "dreamtech_qt_active";
+  const IDLE_MS = (Q.idleMinutes || 15) * 60000;
+  const WARN_MS = Math.min(60000, IDLE_MS / 2);
+  let lastActive = Date.now();
+  let lastWrite = 0;
+  let warned = false;
+  let signingOut = false;
+
+  function touch() {
+    const now = Date.now();
+    lastActive = now;
+    if (now - lastWrite > 5000) {
+      lastWrite = now;
+      try {
+        localStorage.setItem(ACTIVE_KEY, String(now)); // other open tabs see this too
+      } catch (e) {
+        /* ignore */
+      }
+    }
+    if (warned) {
+      warned = false;
+      status("");
+    }
+  }
+
+  async function autoSignOut() {
+    if (signingOut) return;
+    signingOut = true;
+    let msg = "You were signed out after " + (Q.idleMinutes || 15) + " minutes of inactivity.";
+    if (lines.length) {
+      const ok = await saveQuotation();
+      msg += ok
+        ? " Your work was saved as " + $("q-number").value + "."
+        : " Your latest changes could not be saved.";
+    }
+    signOut(msg);
+    signingOut = false;
+  }
+
+  function idleCheck() {
+    if (!BACKEND.enabled || !BACKEND.signedIn() || signingOut) return;
+    let last = lastActive;
+    try {
+      last = Math.max(last, Number(localStorage.getItem(ACTIVE_KEY)) || 0);
+    } catch (e) {
+      /* ignore */
+    }
+    const idle = Date.now() - last;
+    if (idle >= IDLE_MS) {
+      autoSignOut();
+    } else if (idle >= IDLE_MS - WARN_MS) {
+      warned = true;
+      status(
+        "Signing out in " + Math.ceil((IDLE_MS - idle) / 1000) + " seconds because of inactivity. Move the mouse or press a key to stay signed in.",
+        true
+      );
+    }
+  }
+
+  function startIdleWatch() {
+    // A session left over from long ago (page closed, not signed out) ends right away
+    let stored = 0;
+    try {
+      stored = Number(localStorage.getItem(ACTIVE_KEY)) || 0;
+    } catch (e) {
+      /* ignore */
+    }
+    if (BACKEND.signedIn() && Date.now() - stored >= IDLE_MS) {
+      signOut("You were signed out after a period of inactivity. Please sign in again.");
+    }
+    ["mousemove", "mousedown", "keydown", "scroll", "touchstart", "click", "input"].forEach((ev) =>
+      document.addEventListener(ev, touch, { passive: true })
+    );
+    document.addEventListener("visibilitychange", () => {
+      if (!document.hidden) idleCheck(); // e.g. laptop woke from sleep
+    });
+    setInterval(idleCheck, 1000);
+  }
+
   function initAccount() {
     $("q-save").addEventListener("click", saveQuotation);
     if (!BACKEND.enabled) {
@@ -424,20 +514,13 @@
         await BACKEND.signIn($("qt-email").value.trim(), $("qt-pass").value);
         $("qt-pass").value = "";
         status("");
+        touch();
         showAccount();
       } catch (err) {
         status(err.message, true);
       }
     });
-    $("qt-logout").addEventListener("click", () => {
-      BACKEND.signOut();
-      // Clear the on-screen draft and the copy kept in this browser (shared computers)
-      setDefaults();
-      renderRows();
-      refresh();
-      status("");
-      showAccount();
-    });
+    $("qt-logout").addEventListener("click", () => signOut());
     $("qt-saved-list").addEventListener("click", (e) => {
       const b = e.target.closest("[data-open]");
       if (b) openSaved(b.dataset.open);
@@ -447,6 +530,7 @@
       if (b) useRequest(b.dataset.use);
     });
     showAccount();
+    startIdleWatch();
   }
 
   /* ---------- start ---------- */
