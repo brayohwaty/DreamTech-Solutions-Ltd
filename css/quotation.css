@@ -100,3 +100,5 @@
 .qt-layout.qt-locked { grid-template-columns: minmax(0, 28rem); }
 .qt-layout.qt-locked .qt-editor > :not(.qt-account),
 .qt-layout.qt-locked .qt-preview { display: none; }
+
+.qt-lines td select { padding: 0.4rem 0.3rem; font: inherit; font-size: 0.9rem; border: 1.5px solid var(--line); border-radius: 8px; background: var(--white); color: var(--ink); }
