@@ -49,7 +49,7 @@ const SITE = {
     vatRate: 0,           // default VAT: 0 (exempt) or 16
     currency: "KSh",
     salesperson: "",      // default salesperson name (can be changed per quotation)
-    idleMinutes: 15,      // staff are signed out automatically after this many minutes of inactivity
+    idleMinutes: 1,      // staff are signed out automatically after this many minutes of inactivity
 
     // Payment details printed at the bottom. One line per entry. Leave [] to hide.
     // Example: ["Bank: Your Bank, Branch name", "Account name: DreamTech Solutions Ltd", "Account no.: 0000000000", "M-Pesa Till no.: 000000"]
