@@ -11,7 +11,7 @@ const SITE = {
   email: "dreamtechsolutionske@gmail.com",
 
   // Shown in the footer and on the contact page. \n starts a new line.
-  address: "DreamTech Solutions Limited\nNairobi, Kenya",
+  address: "\nNairobi, Kenya",
 
   // What Google Maps should search for. Use your business name or full address,
   // exactly as you would type it into Google Maps.
@@ -25,7 +25,7 @@ const SITE = {
   googleReview: "",
 
   // KRA. Only show what is true and up to date for your business.
-  kraPin: "A000000000X",
+  kraPin: "A000000001X",
   kraNote: "KRA compliant · eTIMS invoices",
 
   // Logo file, e.g. "images/logo.png". Leave "" to use the plus-sign icon.
@@ -54,7 +54,7 @@ const SITE = {
 
     // Payment details printed at the bottom. One line per entry. Leave [] to hide.
     // Example: ["Bank: Your Bank, Branch name", "Account name: DreamTech Solutions Ltd", "Account no.: 0000000000", "M-Pesa Till no.: 000000"]
-    payment: [],
+    payment: ["DREAMTECH SOLUTIONS LTD","EQUITY BANK","THIKA BRANCH","ACCOUNT NO:0123456789","M-PESA TILL NO: 012345"],
 
     terms: "Prices are in Kenya Shillings. This quotation is valid until the expiration date. Availability and delivery time will be confirmed when you place your order."
   }
