@@ -25,7 +25,7 @@ const SITE = {
   googleReview: "",
 
   // KRA. Only show what is true and up to date for your business.
-  kraPin: "A000000001X",
+  kraPin: "A000000000X",
   kraNote: "KRA compliant · eTIMS invoices",
 
   // Logo file, e.g. "images/logo.png". Leave "" to use the plus-sign icon.
@@ -37,8 +37,8 @@ const SITE = {
   // Backend (Supabase). Leave both as "" to run without a backend.
   // See backend/SETUP steps: Project URL and "anon public" key from Supabase > Settings > API.
   backend: {
-    url: "https://wdgqjdbnulabthbirvfo.supabase.co/rest/v1/",      // e.g. "https://abcdxyz.supabase.co"
-    anonKey: "sb_publishable_ebQwb1fU-772WF51hMIdYw_3lkHQEtX"   // the long "anon public" key (safe to publish; the database rules protect your data)
+    url: "",      // e.g. "https://abcdxyz.supabase.co"
+    anonKey: ""   // the long "anon public" key (safe to publish; the database rules protect your data)
   },
 
   // System-generated quotations (staff page: quotation.html)
@@ -49,11 +49,12 @@ const SITE = {
     vatRate: 0,           // default VAT: 0 (exempt) or 16
     currency: "KSh",
     salesperson: "",      // default salesperson name (can be changed per quotation)
-    idleMinutes: 5,      // staff are signed out automatically after this many minutes of inactivity
+    requireLogin: true,   // true = the tool stays locked if the backend is not set up (recommended)
+    idleMinutes: 15,      // staff are signed out automatically after this many minutes of inactivity
 
     // Payment details printed at the bottom. One line per entry. Leave [] to hide.
     // Example: ["Bank: Your Bank, Branch name", "Account name: DreamTech Solutions Ltd", "Account no.: 0000000000", "M-Pesa Till no.: 000000"]
-    payment: ["DREAMTECH SOLUTIONS LTD","EQUITY BANK","THIKA BRANCH","ACCOUNT NO:0123456789","M-PESA TILL NO: 012345"],
+    payment: [],
 
     terms: "Prices are in Kenya Shillings. This quotation is valid until the expiration date. Availability and delivery time will be confirmed when you place your order."
   }
@@ -602,6 +603,10 @@ function setupQuotePage() {
         );
       }
       const results = await Promise.allSettled(jobs);
+      // If only one destination worked, say why in the browser console (press F12)
+      results.forEach((r) => {
+        if (r.status === "rejected") console.error("Quote request was not delivered to one destination:", r.reason);
+      });
       if (!results.some((r) => r.status === "fulfilled")) throw new Error("Send failed");
       writeBasket([]);
       form.reset();
