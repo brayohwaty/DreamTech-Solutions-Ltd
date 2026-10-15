@@ -37,8 +37,8 @@ const SITE = {
   // Backend (Supabase). Leave both as "" to run without a backend.
   // See backend/SETUP steps: Project URL and "anon public" key from Supabase > Settings > API.
   backend: {
-    url: "",      // e.g. "https://abcdxyz.supabase.co"
-    anonKey: ""   // the long "anon public" key (safe to publish; the database rules protect your data)
+    url: "https://wdgqjdbnulabthbirvfo.supabase.co/rest/v1/",      // e.g. "https://abcdxyz.supabase.co"
+    anonKey: "sb_publishable_ebQwb1fU-772WF51hMIdYw_3lkHQEtX"   // the long "anon public" key (safe to publish; the database rules protect your data)
   },
 
   // System-generated quotations (staff page: quotation.html)
